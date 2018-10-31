@@ -10,10 +10,10 @@ from keras.layers import Dropout, Flatten, Dense
 
 
 
-top_model_weights_path = "bottleneck_fc_model.h5"
+top_model_weights_path = "neural_kb/bottleneck_fc_model.h5"
 
 def predict(image_path):
-    class_dictionary = np.load('class_indices.npy').item()
+    class_dictionary = np.load('neural_kb/class_indices.npy').item()
 
     num_classes = len(class_dictionary)
 
