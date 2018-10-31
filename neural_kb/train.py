@@ -87,8 +87,6 @@ def train_top_model():
     # get the class labels for the training data, in the original order
     train_labels = generator_top.classes
 
-    # https://github.com/fchollet/keras/issues/3467
-    # convert the training labels to categorical vectors
     train_labels = to_categorical(train_labels, num_classes=num_classes)
 
     generator_top = datagen_top.flow_from_directory(
