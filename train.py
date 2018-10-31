@@ -14,8 +14,8 @@ train_data_dir = 'data/train'
 validation_data_dir = 'data/validation'
 
 num_classes = None
-nb_train_samples = None
-nb_validation_samples = None
+nb_train_samples = 4000
+nb_validation_samples = 1000
 epochs = 100
 batch_size = 16
 
@@ -33,7 +33,7 @@ def train_top_model():
         class_mode=None,
         shuffle=False)
 
-    nb_train_samples = len(generator.filenames)
+    # nb_train_samples = len(generator.filenames)
 
     num_classes = len(generator.class_indices)
 
@@ -53,7 +53,7 @@ def train_top_model():
         class_mode=None,
         shuffle=False)
 
-    nb_validation_samples = len(generator.filenames)
+    # nb_validation_samples = len(generator.filenames)
 
     validation_labels = generator.classes
     validation_labels = to_categorical(validation_labels, num_classes=num_classes)  
