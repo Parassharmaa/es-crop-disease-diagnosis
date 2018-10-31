@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Crop Leaf Disease Diagnosis</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <div class="row" style="max-width: 300px">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="responsive-img" src="{{ url_for('send_file', filename=image) }}">
+
+                            <span class="card-title">{{data['disease']['Disease']}}</span>
+                        </div>
+                        <div class="card-content center">
+                            <h6 class="card-title">{{data['disease']['Disease']}}</h6>
+                            <h6>Crop: {{data['disease']['crop_type']}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5>Diagnosis: Pesticides, Fungicides...</h5>
+            <hr>
+            <ul class="collapsible popout">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">whatshot</i>
+                        {% set diagnosis_1 = data['disease']['Diagnosis 1'] %} {{diagnosis_1 | upper}}
+                        <span class="badge">{{data['type'][diagnosis_1]}}</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <span>{{data['description'][diagnosis_1]}}</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">whatshot</i>
+                        {% set diagnosis_2 = data['disease']['Diagnosis 2'] %} {{diagnosis_2 | upper}}
+                        <span class="badge">{{data['type'][diagnosis_2]}}</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <span>{{data['description'][diagnosis_2]}}</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">whatshot</i>
+                        {% set diagnosis_3 = data['disease']['Diagnosis 3'] %} {{diagnosis_3 | upper}}
+                        <span class="badge">{{data['type'][diagnosis_3]}}</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <span>{{data['description'][diagnosis_3]}}</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.collapsible');
+            var instances = M.Collapsible.init(elems);
+        });
+    </script>
+</body>
+
+</html>
