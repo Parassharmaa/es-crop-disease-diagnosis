@@ -5,7 +5,6 @@ from keras.preprocessing import image as img
 import argparse
 import os
 from keras import applications
-
 from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
 
@@ -23,7 +22,6 @@ def predict(image_path):
     image = img.load_img(image_path, target_size=(150, 150))
     image = img.img_to_array(image)
 
-    # important! otherwise the predictions will be '0'
     image = image / 255
 
     image = np.expand_dims(image, axis=0)
@@ -47,7 +45,7 @@ def predict(image_path):
     # classification
     class_predicted = model.predict_classes(bottleneck_prediction)
 
-    probabilities = model.predict_proba(bottleneck_prediction)
+    prediction = model.predict(bottleneck_prediction)
 
     inID = class_predicted[0]
 
@@ -58,5 +56,7 @@ def predict(image_path):
     # get the prediction label
     print("Image ID: {}, Label: {}".format(inID, label))
 
+    return (inID, label, prediction)
 
-predict("test_image_1.JPG")
+    
+
