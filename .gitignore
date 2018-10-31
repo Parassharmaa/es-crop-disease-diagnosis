@@ -2,5 +2,4 @@ data/train/
 data/validation/
 
 *.npy
-*.h5
 
