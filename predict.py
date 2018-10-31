@@ -1,9 +1,14 @@
 from keras.models import load_model
 import sys
 import numpy as np
-from keras.preprocessing import image
+from keras.preprocessing import image as img
 import argparse
 import os
+from keras import applications
+
+from keras.models import Sequential
+from keras.layers import Dropout, Flatten, Dense
+
 
 
 top_model_weights_path = "bottleneck_fc_model.h5"
@@ -15,8 +20,8 @@ def predict(image_path):
 
 
     print("[INFO] loading and preprocessing image...")
-    image = load_img(image_path, target_size=(224, 224))
-    image = img_to_array(image)
+    image = img.load_img(image_path, target_size=(224, 224))
+    image = img.img_to_array(image)
 
     # important! otherwise the predictions will be '0'
     image = image / 255
@@ -52,3 +57,7 @@ def predict(image_path):
 
     # get the prediction label
     print("Image ID: {}, Label: {}".format(inID, label))
+
+
+
+predict("data/validation/Apple___Apple_scab/f9e4b1bc-36b0-40df-bb48-4e6ed48ec8b5___FREC_Scab 3514.JPG")
