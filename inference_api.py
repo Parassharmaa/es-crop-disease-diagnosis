@@ -22,10 +22,10 @@ def upload_file():
 
     file.save(f)
 
-    disease_id, label, prediction = predict(image_path)
+    disease_id, label, prediction = predict(f)
 
     return json.dumps(get_facts(disease_id))
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0')

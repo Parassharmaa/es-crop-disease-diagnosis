@@ -16,5 +16,6 @@ disease_id, label, prediction = predict(image_path)
 
 
 print(disease_id)
-print(get_facts(disease_id))
+result = get_facts(int(disease_id))
 
+print(result['disease']['Disease'])

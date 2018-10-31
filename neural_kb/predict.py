@@ -7,12 +7,13 @@ import os
 from keras import applications
 from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
-
+from keras import backend as K
 
 
 top_model_weights_path = "neural_kb/bottleneck_fc_model.h5"
 
 def predict(image_path):
+    K.clear_session()
     class_dictionary = np.load('neural_kb/class_indices.npy').item()
 
     num_classes = len(class_dictionary)
