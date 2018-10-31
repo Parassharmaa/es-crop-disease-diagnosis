@@ -20,7 +20,7 @@ def predict(image_path):
 
 
     print("[INFO] loading and preprocessing image...")
-    image = img.load_img(image_path, target_size=(224, 224))
+    image = img.load_img(image_path, target_size=(150, 150))
     image = img.img_to_array(image)
 
     # important! otherwise the predictions will be '0'
@@ -59,5 +59,4 @@ def predict(image_path):
     print("Image ID: {}, Label: {}".format(inID, label))
 
 
-
-predict("data/validation/Apple___Apple_scab/f9e4b1bc-36b0-40df-bb48-4e6ed48ec8b5___FREC_Scab 3514.JPG")
+predict("test_image_1.JPG")
