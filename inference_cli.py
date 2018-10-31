@@ -14,7 +14,7 @@ image_path = args.image
 
 disease_id, label, prediction = predict(image_path)
 
-
+print(prediction)
 print(disease_id)
 result = get_facts(int(disease_id))
 
