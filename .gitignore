@@ -1,5 +1,5 @@
 data/train/
 data/validation/
 
-*.npy
-
+bottleneck_features_train.npy
+bottleneck_features_validation.npy
