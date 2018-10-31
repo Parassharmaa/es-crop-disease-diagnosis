@@ -3,9 +3,9 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
 from keras import applications
- from keras.utils.np_utils import to_categorical 
+from keras.utils.np_utils import to_categorical 
 
- 
+
 # dimensions of our images.
 img_width, img_height = 150, 150
 
